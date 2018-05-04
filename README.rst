@@ -3,6 +3,24 @@ Foobarlab Overlay
 
 This is my personal overlay to use as the starting point for collaborating with Funtoo Linux.
 
+Usage
+-----
+
+Checkout the sources to /var/git/overlay/foobarlab and add the file
+``/etc/portage/repos.conf/foobarlab`` with the following contents::
+
+  [DEFAULT]i
+  main-repo = core-kit
+  
+  [foobarlab]
+  location = /var/git/overlay/foobarlab
+  auto-sync = no
+  priority = 10
+
+Doing ``ego sync`` afterwards will update your portage tree and make the ebuilds available.
+
+To remove this overlay just remove above files and folders and do ``ego sync`` again.
+
 =================================
 How to Contribute to this Overlay
 =================================

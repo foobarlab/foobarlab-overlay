@@ -6,7 +6,7 @@ This is my personal overlay to use as the starting point for collaborating with 
 Usage
 -----
 
-Checkout the sources to /var/git/overlay/foobarlab and add the file
+Checkout the sources to ``/var/git/overlay/foobarlab`` and add the file
 ``/etc/portage/repos.conf/foobarlab`` with the following contents::
 
   [DEFAULT]i

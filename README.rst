@@ -9,7 +9,7 @@ Usage
 Checkout the sources to ``/var/git/overlay/foobarlab`` and add the file
 ``/etc/portage/repos.conf/foobarlab`` with the following contents::
 
-  [DEFAULT]i
+  [DEFAULT]
   main-repo = core-kit
   
   [foobarlab]

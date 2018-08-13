@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -18,7 +18,7 @@ SRC_URI="mirror://apache/lucene/${MY_PN}/${PV}/${MY_PN}-${PV}.tgz"
 KEYWORDS="~amd64"
 SLOT="0"
 LICENSE="Apache-2.0"
-IUSE="contrib doc examples"
+IUSE="doc"
 
 DEPEND=""
 RDEPEND=">=virtual/jre-1.8"
@@ -38,6 +38,9 @@ src_install() {
 
 	# remove files that are not needed on linux
 	find \( -name "*.bat" -o -name "*.cmd" \) -delete
+
+	# remove service installer
+	rm "${ED}/opt/solr/bin/install_solr_service.sh"
 
 	# /etc/solr
 	insinto /etc/${MY_PN}/server
@@ -86,11 +89,4 @@ src_install() {
 		java-pkg_dojavadoc docs
 	fi
 
-	if use contrib ; then
-		# TODO
-	fi
-
-	if use examples ; then
-		# TODO
-	fi
 }

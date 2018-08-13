@@ -34,17 +34,18 @@ pkg_setup() {
 }
 
 src_prepare() {
-	sed -i ./src/couchdb/priv/Makefile.* -e 's|-Werror||g'
-	eautoreconf
+	#sed -i ./src/couchdb/priv/Makefile.* -e 's|-Werror||g'
+	#eautoreconf
 }
 
 src_configure() {
-	econf \
-		--with-erlang="${EPREFIX}"/usr/$(get_libdir)/erlang/usr/include \
-		--localstatedir="${EPREFIX}"/var \
-		--with-js-lib="${EPREFIX}"/usr/$(get_libdir)
+	econf
+	#econf \
+	#	--with-erlang="${EPREFIX}"/usr/$(get_libdir)/erlang/usr/include \
+	#	--localstatedir="${EPREFIX}"/var \
+	#	--with-js-lib="${EPREFIX}"/usr/$(get_libdir)
 	# bug 296609, upstream bug #COUCHDB-621
-	sed -e "s#localdocdir = /usr/share/doc/couchdb#localdocdir = "${EPREFIX}"/usr/share/doc/${PF}#" -i Makefile || die "sed failed"
+	#sed -e "s#localdocdir = /usr/share/doc/couchdb#localdocdir = "${EPREFIX}"/usr/share/doc/${PF}#" -i Makefile || die "sed failed"
 }
 
 src_compile() {

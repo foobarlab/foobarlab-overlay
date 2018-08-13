@@ -35,7 +35,7 @@ pkg_setup() {
 
 src_prepare() {
 	#sed -i ./src/couchdb/priv/Makefile.* -e 's|-Werror||g'
-	#eautoreconf
+	eautoreconf
 }
 
 src_configure() {

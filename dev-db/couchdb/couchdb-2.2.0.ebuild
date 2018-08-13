@@ -35,8 +35,8 @@ RESTRICT=test
 S="${WORKDIR}/apache-${P}"
 
 pkg_setup() {
-	enewgroup couchdb
-	enewuser couchdb -1 -1 /var/lib/couchdb couchdb
+	enewgroup couchdb || die "failed to create user group"
+	enewuser couchdb -1 -1 /var/lib/couchdb couchdb || die "failed to create user"
 }
 
 src_configure() {

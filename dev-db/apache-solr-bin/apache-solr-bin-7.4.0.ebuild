@@ -4,7 +4,6 @@
 
 EAPI=5
 
-#inherit user java-utils-2
 inherit user
 
 MY_PN="solr"
@@ -14,8 +13,7 @@ DESCRIPTION="The popular, blazing fast open source enterprise search platform fr
 HOMEPAGE="http://lucene.apache.org/solr/"
 SRC_URI="mirror://apache/lucene/${MY_PN}/${PV}/${MY_PN}-${PV}.tgz"
 
-# x86 not supported due to xml-xmlbeans not having x86 arch
-KEYWORDS="~amd64"
+KEYWORDS="~amd64 ~ppc ~x86"
 SLOT="0"
 LICENSE="Apache-2.0"
 IUSE="doc"
@@ -31,6 +29,7 @@ pkg_setup() {
 }
 
 src_install() {
+	# FIXME instead of installing to /opt/solr consider installing to /opt/solr-{version} and symlinking from /opt/solr?
 	local randpw=$(echo ${RANDOM}|md5sum|cut -c 1-15)
 	newinitd "${FILESDIR}/solr.initd" ${MY_PN}-bin
 	newconfd "${FILESDIR}/solr.confd" ${MY_PN}-bin
@@ -40,6 +39,7 @@ src_install() {
 	find \( -name "*.bat" -o -name "*.cmd" \) -delete
 
 	# remove service installer
+	# FIXME not working yet
 	rm "${ED}/opt/solr/bin/install_solr_service.sh"
 
 	# /etc/solr

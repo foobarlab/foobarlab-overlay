@@ -40,6 +40,7 @@ pkg_setup() {
 }
 
 src_configure() {
+	# FIXME this spits out some warnings about unknown configure options, but this can be ignored
 	econf \
 		--with-erlang="${EPREFIX}"/usr/$(get_libdir)/erlang/usr/include \
 		--with-curl \
@@ -55,6 +56,7 @@ src_test() {
 }
 
 src_install() {
+	# FIXME instead of installing to /opt/couchdb consider installing to /opt/couchdb-{version} and symlinking from /opt/couchdb?
 	mkdir -p "${D}"/{etc,opt}
 	mv "${S}/rel/couchdb/etc" "${D}/etc/couchdb"
 	mv "${S}/rel/couchdb" "${D}/opt/"

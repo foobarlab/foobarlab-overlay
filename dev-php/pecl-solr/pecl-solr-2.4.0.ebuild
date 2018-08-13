@@ -8,7 +8,7 @@
 EAPI=6
 
 PHP_EXT_NAME="solr"
-USE_PHP="php5-6 php7-0 php7-1 php7-2 php7-3"
+USE_PHP="php5-6 php7-0 php7-1"
 MY_P="${PN/pecl-/}-${PV/_rc/RC}"
 PHP_EXT_PECL_FILENAME="${MY_P}.tgz"
 PHP_EXT_S="${WORKDIR}/${MY_P}"
@@ -18,11 +18,17 @@ inherit php-ext-pecl-r3
 DESCRIPTION="PHP extension for interfacing with Apache Solr"
 LICENSE="PHP-3.01"
 SLOT="0"
-KEYWORDS="~amd64 ~arm"
+KEYWORDS=""
 IUSE=""
 
-DEPEND=""
-RDEPEND="net-misc/curl"
+RDEPEND="
+	php_targets_php5-6? ( dev-lang/php:5.6[json xml] )
+    php_targets_php7-0? ( dev-lang/php:7.0[json xml] )
+    php_targets_php7-1? ( dev-lang/php:7.1[json xml] )
+	net-misc/curl
+	>=dev-libs/libxml2-2.6.26
+"
+DEPEND="${RDEPEND}"
 
 # The test suite requires network access.
 RESTRICT=test

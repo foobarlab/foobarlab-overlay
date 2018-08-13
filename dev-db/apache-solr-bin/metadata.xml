@@ -2,11 +2,6 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <maintainer type="person">
-	<email>fordfrog@gentoo.org</email>
-	<name>Miroslav Šulc</name>
+	<email>eyesee@foobarlab.net</email>
 </maintainer>
-<use>
-        <flag name="contrib">Includes contrib directory</flag>
-        <flag name="examples">Includes example directory</flag>
-</use>
 </pkgmetadata>

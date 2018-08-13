@@ -1,6 +1,10 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+# dependencies, see: http://git.php.net/?p=pecl/search_engine/solr.git;a=blob;f=README.INSTALLATION;h=bc80b40f458ae3be626e2d888c08742c63f8d3e1;hb=HEAD
+# FIXME: requires 'libxml' and 'json' PHP extensions
+# FIXME: requires 'libxml2' library
+
 EAPI=6
 
 PHP_EXT_NAME="solr"
@@ -18,7 +22,7 @@ KEYWORDS="~amd64 ~arm"
 IUSE=""
 
 DEPEND=""
-RDEPEND=""
+RDEPEND="net-misc/curl"
 
 # The test suite requires network access.
 RESTRICT=test

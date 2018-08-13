@@ -53,14 +53,6 @@ src_install() {
 	doins -r dist
 	dodoc *.txt
 
-	if use contrib ; then
-		doins -r contrib
-	fi
-
-	if use examples ; then
-		doins -r example
-	fi
-
 	# /opt/solr/bin
 	exeinto /opt/${MY_PN}/bin
 	doexe bin/*

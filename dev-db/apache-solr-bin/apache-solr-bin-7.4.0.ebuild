@@ -12,7 +12,7 @@ DESCRIPTION="The popular, blazing fast open source enterprise search platform fr
 HOMEPAGE="http://lucene.apache.org/solr/"
 SRC_URI="mirror://apache/lucene/${MY_PN}/${PV}/${MY_PN}-${PV}.tgz"
 
-KEYWORDS="~amd64 ~ppc ~x86"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="Apache-2.0"
 IUSE="doc"

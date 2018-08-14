@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
 inherit eutils multilib pax-utils user
 
@@ -13,6 +13,8 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="libressl selinux test"
+
+# TODO add DOCS?
 
 RDEPEND=">=dev-libs/icu-4.3.1:=
 		<dev-lang/erlang-20[ssl]
@@ -40,7 +42,7 @@ pkg_setup() {
 }
 
 src_configure() {
-	# FIXME this spits out some warnings about unknown configure options, but this can be ignored
+	# this spits out some warnings about unknown configure options, but this can be ignored
 	econf \
 		--with-erlang="${EPREFIX}"/usr/$(get_libdir)/erlang/usr/include \
 		--with-curl \
@@ -61,6 +63,8 @@ src_install() {
 	mv "${S}/rel/couchdb/etc" "${D}/etc/couchdb"
 	mv "${S}/rel/couchdb" "${D}/opt/"
 	dosym ../../etc/couchdb /opt/couchdb/etc
+
+	# FIXME on uninstall the config in /etc/couchdb and data in /var/lib/couchdb remains on filesystem - should this be removed?
 
 	keepdir /var/l{ib,og}/couchdb
 

@@ -29,9 +29,9 @@ pkg_setup() {
 src_install() {
 	# FIXME instead of installing to /opt/solr consider installing to /opt/solr-{version} and symlinking from /opt/solr?
 	local randpw=$(echo ${RANDOM}|md5sum|cut -c 1-15)
-	newinitd "${FILESDIR}/solr.initd" ${MY_PN}-bin
-	newconfd "${FILESDIR}/solr.confd" ${MY_PN}-bin
-	sed -i "s/solrrocks/${randpw}/g" "${D}/etc/init.d/${MY_PN}-bin" "${D}/etc/conf.d/${MY_PN}-bin"
+	newinitd "${FILESDIR}/solr.initd" ${MY_PN}
+	newconfd "${FILESDIR}/solr.confd" ${MY_PN}
+	sed -i "s/solrrocks/${randpw}/g" "${D}/etc/init.d/${MY_PN}" "${D}/etc/conf.d/${MY_PN}"
 
 	# remove files that are not needed on linux
 	find \( -name "*.bat" -o -name "*.cmd" \) -delete
@@ -48,8 +48,9 @@ src_install() {
 	dodoc *.txt
 
 	# /opt/solr/bin
-	rm -rf bin/init.d/
 	exeinto /opt/${MY_PN}/bin
+	rm -rf bin/init.d/
+	rm bin/install_solr_service.sh
 	doexe bin/*
 	dosym /opt/${MY_PN}/bin/solr /usr/bin/solr
 
@@ -71,8 +72,4 @@ src_install() {
 	doins -r server/solr/*
 	fperms 750 /var/lib/${MY_PN}
 	fowners solr:solr /var/lib/${MY_PN}
-
-	# remove service installer
-	rm "${D}/opt/solr/bin/install_solr_service.sh"
-
 }

@@ -16,6 +16,8 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="Apache-2.0"
 
+# TODO add DOCS?
+
 DEPEND=""
 RDEPEND=">=virtual/jre-1.8"
 

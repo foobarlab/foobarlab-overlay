@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=6
 
 inherit user
 
@@ -15,7 +15,6 @@ SRC_URI="mirror://apache/lucene/${MY_PN}/${PV}/${MY_PN}-${PV}.tgz"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="Apache-2.0"
-IUSE="doc"
 
 DEPEND=""
 RDEPEND=">=virtual/jre-1.8"
@@ -37,10 +36,6 @@ src_install() {
 	# remove files that are not needed on linux
 	find \( -name "*.bat" -o -name "*.cmd" \) -delete
 
-	# remove service installer
-	# FIXME not working yet
-	rm "${ED}/opt/solr/bin/install_solr_service.sh"
-
 	# /etc/solr
 	insinto /etc/${MY_PN}/server
 	doins -r server/etc/*
@@ -53,12 +48,13 @@ src_install() {
 	dodoc *.txt
 
 	# /opt/solr/bin
+	rm -rf bin/init.d/
 	exeinto /opt/${MY_PN}/bin
 	doexe bin/*
 	dosym /opt/${MY_PN}/bin/solr /usr/bin/solr
 
 	# /var/log/solr
-	dodir /var/log/${MY_PN}
+	keepdir /var/log/${MY_PN}
 	fperms 750 /var/log/${MY_PN}
 	fowners solr:solr /var/log/${MY_PN}
 
@@ -76,8 +72,7 @@ src_install() {
 	fperms 750 /var/lib/${MY_PN}
 	fowners solr:solr /var/lib/${MY_PN}
 
-	if use doc ; then
-		java-pkg_dojavadoc docs
-	fi
+	# remove service installer
+	rm "${D}/opt/solr/bin/install_solr_service.sh"
 
 }

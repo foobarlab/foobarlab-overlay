@@ -1,5 +1,5 @@
 #
-# For more configuration options see /etc/init.d/solr-bin.
+# For more configuration options see /etc/init.d/solr.
 #
 
 # Set the handle of the JVM to use. If unset uses the system-vm.

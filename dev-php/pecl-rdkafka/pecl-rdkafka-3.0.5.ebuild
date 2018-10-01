@@ -15,7 +15,7 @@ DESCRIPTION="PHP extension for interfacing with Apache Kafka"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-DOCS=( CREDITS docs/documentation.php )
+DOCS=( CREDITS )
 
 RDEPEND="
 	php_targets_php5-6? ( dev-lang/php:5.6 )

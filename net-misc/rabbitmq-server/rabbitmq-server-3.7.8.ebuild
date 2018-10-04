@@ -5,7 +5,7 @@ EAPI="6"
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit eutils python-any-r1 systemd user
+inherit eutils python-any-r1 user
 
 DESCRIPTION="RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang"
 HOMEPAGE="http://www.rabbitmq.com/"
@@ -59,9 +59,15 @@ src_install() {
 		newsbin "${FILESDIR}"/rabbitmq-script-wrapper $(basename $script)
 	done
 
-	# install the init script
-	newinitd "${FILESDIR}"/rabbitmq-server.init-r3 rabbitmq
-	systemd_dounit "${FILESDIR}/rabbitmq.service"
+	# install the init.d and conf.d script
+	newinitd "${FILESDIR}/rabbitmq-server.init-2" "rabbitmq"
+	newconfd "${FILESDIR}/rabbitmq-server.conf-2" "rabbitmq"
+	
+	# install default configuration files
+	insinto /etc/rabbitmq
+	insopts -m0640 -orabbitmq -grabbitmq
+	doins "${FILESDIR}/rabbitmq-env.conf"
+	doins "${FILESDIR}/rabbitmq.conf"
 
 	# install documentation
 	dodoc deps/rabbit/docs/*.example

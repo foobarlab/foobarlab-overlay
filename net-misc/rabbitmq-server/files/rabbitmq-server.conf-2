@@ -1,4 +1,4 @@
 # Options for RabbitMQ OpenRC init file
-RABBITMQ_USER="rabbitmq:rabbitmq"
+RABBITMQ_USER="rabbitmq"
 RABBITMQ_PID_FILE="/run/rabbitmq/rabbitmq.pid"
-RABBITMQ_OPTIONS="-detached"
+RABBITMQ_LOG_DIR="/var/log/rabbitmq"

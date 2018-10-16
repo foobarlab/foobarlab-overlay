@@ -8,7 +8,7 @@ inherit user
 MY_PN="solr"
 MY_P="${MY_PN}-${PV}"
 
-DESCRIPTION="The popular, blazing fast open source enterprise search platform from the Apache Lucene project."
+DESCRIPTION="The popular, blazing fast open source enterprise search platform from the Apache Lucene project"
 HOMEPAGE="http://lucene.apache.org/solr/"
 SRC_URI="mirror://apache/lucene/${MY_PN}/${PV}/${MY_PN}-${PV}.tgz"
 

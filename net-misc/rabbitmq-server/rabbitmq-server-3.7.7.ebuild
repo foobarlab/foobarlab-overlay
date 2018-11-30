@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit eutils python-any-r1 user
 
 DESCRIPTION="RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang"
-HOMEPAGE="http://www.rabbitmq.com/"
+HOMEPAGE="https://www.rabbitmq.com/"
 SRC_URI="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${PV}/rabbitmq-server-${PV}.tar.xz"
 
 LICENSE="GPL-2 MPL-1.1"
@@ -62,7 +62,7 @@ src_install() {
 	# install the init.d and conf.d script
 	newinitd "${FILESDIR}/rabbitmq-server.init-2" "rabbitmq"
 	newconfd "${FILESDIR}/rabbitmq-server.conf-2" "rabbitmq"
-	
+
 	# install default configuration files
 	insinto /etc/rabbitmq
 	insopts -m0640 -orabbitmq -grabbitmq

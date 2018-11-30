@@ -19,8 +19,8 @@ DOCS=( CREDITS docs/documentation.php )
 
 RDEPEND="
 	php_targets_php5-6? ( dev-lang/php:5.6[json,xml] )
-    php_targets_php7-0? ( dev-lang/php:7.0[json,xml] )
-    php_targets_php7-1? ( dev-lang/php:7.1[json,xml] )
+	php_targets_php7-0? ( dev-lang/php:7.0[json,xml] )
+	php_targets_php7-1? ( dev-lang/php:7.1[json,xml] )
 	net-misc/curl
 	>=dev-libs/libxml2-2.6.26
 "

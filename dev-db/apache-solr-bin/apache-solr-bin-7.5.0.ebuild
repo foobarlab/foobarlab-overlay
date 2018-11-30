@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 inherit user
 
@@ -9,7 +9,7 @@ MY_PN="solr"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="The popular, blazing fast open source enterprise search platform from the Apache Lucene project"
-HOMEPAGE="http://lucene.apache.org/solr/"
+HOMEPAGE="https://lucene.apache.org/solr/"
 SRC_URI="mirror://apache/lucene/${MY_PN}/${PV}/${MY_PN}-${PV}.tgz"
 
 KEYWORDS="~amd64 ~x86"
@@ -29,7 +29,9 @@ pkg_setup() {
 }
 
 src_install() {
+
 	# FIXME instead of installing to /opt/solr consider installing to /opt/solr-{version} and symlinking from /opt/solr?
+
 	local randpw=$(echo ${RANDOM}|md5sum|cut -c 1-15)
 	newinitd "${FILESDIR}/solr.initd" ${MY_PN}
 	newconfd "${FILESDIR}/solr.confd" ${MY_PN}

@@ -1,7 +1,7 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
+EAPI=7
 
 inherit eutils multilib pax-utils user
 
@@ -58,10 +58,16 @@ src_test() {
 }
 
 src_install() {
+
 	# FIXME instead of installing to /opt/couchdb consider installing to /opt/couchdb-{version} and symlinking from /opt/couchdb?
+
 	mkdir -p "${D}"/{etc,opt}
-	mv "${S}/rel/couchdb/etc" "${D}/etc/couchdb"
-	mv "${S}/rel/couchdb" "${D}/opt/"
+
+	insinto "${D}/etc/couchdb"
+	doins "${S}/rel/couchdb/etc"
+	insinto "${D}/opt/"
+	doins "${S}/rel/couchdb"
+
 	dosym ../../etc/couchdb /opt/couchdb/etc
 
 	# FIXME on uninstall the config in /etc/couchdb and data in /var/lib/couchdb remains on filesystem - should this be removed?

@@ -1,0 +1,1 @@
+This ebuild is here because of a missing dependency to vagrant-2.1.5 in Funtoo 1.2. Can be removed when using Funtoo 1.3.

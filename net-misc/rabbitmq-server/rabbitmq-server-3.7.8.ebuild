@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python2_7 )
 inherit eutils python-any-r1 user
 
 DESCRIPTION="RabbitMQ is a high-performance AMQP-compliant message broker written in Erlang"
-HOMEPAGE="http://www.rabbitmq.com/"
+HOMEPAGE="https://www.rabbitmq.com/"
 SRC_URI="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${PV}/rabbitmq-server-${PV}.tar.xz"
 
 LICENSE="GPL-2 MPL-1.1"

@@ -19,9 +19,9 @@ DOCS=( CREDITS )
 
 RDEPEND="
 	php_targets_php5-6? ( dev-lang/php:5.6 )
-    php_targets_php7-0? ( dev-lang/php:7.0 )
-    php_targets_php7-1? ( dev-lang/php:7.1 )
-    php_targets_php7-1? ( dev-lang/php:7.2 )
+	php_targets_php7-0? ( dev-lang/php:7.0 )
+	php_targets_php7-1? ( dev-lang/php:7.1 )
+	php_targets_php7-1? ( dev-lang/php:7.2 )
 	>=dev-libs/librdkafka-0.9.0
 "
 DEPEND="${RDEPEND}"

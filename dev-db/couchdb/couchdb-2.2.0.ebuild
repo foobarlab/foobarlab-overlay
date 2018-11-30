@@ -72,7 +72,7 @@ src_install() {
 		/var/lib/couchdb \
 		/var/log/couchdb
 	fperms  0750 "/var/log/couchdb"
-	
+
 	for f in "${ED}"/etc/couchdb/*.d; do
 		fowners root:couchdb "${f#${ED}}"
 		fperms 0750 "${f#${ED}}"

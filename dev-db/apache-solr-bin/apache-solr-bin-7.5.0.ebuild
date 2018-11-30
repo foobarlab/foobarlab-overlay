@@ -29,7 +29,9 @@ pkg_setup() {
 }
 
 src_install() {
+
 	# FIXME instead of installing to /opt/solr consider installing to /opt/solr-{version} and symlinking from /opt/solr?
+
 	local randpw=$(echo ${RANDOM}|md5sum|cut -c 1-15)
 	newinitd "${FILESDIR}/solr.initd" ${MY_PN}
 	newconfd "${FILESDIR}/solr.confd" ${MY_PN}

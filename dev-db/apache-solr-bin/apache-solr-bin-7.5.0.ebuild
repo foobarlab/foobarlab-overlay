@@ -16,8 +16,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="Apache-2.0"
 
-# TODO add DOCS?
-
 DEPEND=""
 RDEPEND=">=virtual/jre-1.8"
 
@@ -29,8 +27,6 @@ pkg_setup() {
 }
 
 src_install() {
-
-	# FIXME instead of installing to /opt/solr consider installing to /opt/solr-{version} and symlinking from /opt/solr?
 
 	local randpw=$(echo ${RANDOM}|md5sum|cut -c 1-15)
 	newinitd "${FILESDIR}/solr.initd" ${MY_PN}

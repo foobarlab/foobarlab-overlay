@@ -62,7 +62,7 @@ src_install() {
 	# install the init.d and conf.d script
 	newinitd "${FILESDIR}/rabbitmq-server.init-2" "rabbitmq"
 	newconfd "${FILESDIR}/rabbitmq-server.conf-2" "rabbitmq"
-	
+
 	# install default configuration files
 	insinto /etc/rabbitmq
 	insopts -m0640 -orabbitmq -grabbitmq

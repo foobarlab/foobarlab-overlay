@@ -14,8 +14,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="libressl selinux test"
 
-# TODO add DOCS?
-
 RDEPEND=">=dev-libs/icu-4.3.1:=
 		<dev-lang/erlang-21[ssl]
 		~dev-lang/spidermonkey-1.8.5
@@ -59,18 +57,13 @@ src_test() {
 
 src_install() {
 
-	# FIXME instead of installing to /opt/couchdb consider installing to /opt/couchdb-{version} and symlinking from /opt/couchdb?
-
 	mkdir -p "${D}"/{etc,opt}
-
 	insinto "${D}/etc/couchdb"
 	doins "${S}/rel/couchdb/etc"
 	insinto "${D}/opt/"
 	doins "${S}/rel/couchdb"
 
 	dosym ../../etc/couchdb /opt/couchdb/etc
-
-	# FIXME on uninstall the config in /etc/couchdb and data in /var/lib/couchdb remains on filesystem - should this be removed?
 
 	keepdir /var/l{ib,og}/couchdb
 

@@ -34,5 +34,3 @@ S="${WORKDIR}/${MY_P}"
 src_configure() {
 	php-ext-source-r3_src_configure
 }
-
-# TODO test missing

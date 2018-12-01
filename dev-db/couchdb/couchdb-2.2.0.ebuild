@@ -56,13 +56,9 @@ src_test() {
 }
 
 src_install() {
-
 	mkdir -p "${D}"/{etc,opt}
-	insinto "${D}/etc/couchdb"
-	doins "${S}/rel/couchdb/etc"
-	insinto "${D}/opt/"
-	doins "${S}/rel/couchdb"
-
+	mv "${S}/rel/couchdb/etc" "${D}/etc/couchdb"
+    mv "${S}/rel/couchdb" "${D}/opt/"
 	dosym ../../etc/couchdb /opt/couchdb/etc
 
 	keepdir /var/l{ib,og}/couchdb

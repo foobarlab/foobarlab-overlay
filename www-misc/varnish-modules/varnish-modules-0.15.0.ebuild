@@ -2,8 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
-﻿
-#inherit autotools
 
 DESCRIPTION="Collection of Varnish Cache modules (vmods) by Varnish Software"
 HOMEPAGE="https://github.com/varnish/varnish-modules"
@@ -13,27 +11,13 @@ LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-RESTRICT="test"
 
-RDEPEND=""
+RDEPEND=">=www-servers/varnish-4.0.0
+         <www-servers/varnish-6.0.0"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-    bootstrap
+    eapply_user
+    ${S}/bootstrap
 }
 
-#src_configure() {
-#    if [[ -x ${ECONF_SOURCE:-.}/configure ]] ; then
-#        econf
-#    fi
-#}
-
-#src_compile() {
-#    if [ -f Makefile ] || [ -f GNUmakefile ] || [ -f makefile ] ; then
-#        emake || die "emake failed"
-#    fi
-#}
-
-#src_install() {
-#    # TODO make install
-#}

@@ -1,0 +1,6 @@
+#ETHERPATH="/local/etherpad-lite/"
+#ARGS="node_modules/ep_etherpad-lite/node/server.js"
+#ETHERLOG="${ETHERPATH}/log/error.log"
+#USER="etherpad-lite"
+#PIDFILE="/var/run/etherpad-lite.pid"
+#NODE="/usr/bin/node"

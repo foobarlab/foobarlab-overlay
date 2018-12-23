@@ -1,0 +1,24 @@
+#!/sbin/openrc-run
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+# TODO run in production mode:
+#export NODE_ENV=production
+
+#depend() {
+#    #use dns logger net
+#    need net mysql
+#    after apache2
+#}
+
+#start() {
+#    ebegin "Starting ${RC_SVCNAME}"
+#        start-stop-daemon -S -m --pidfile ${PIDFILE} -x ${NODE} -u ${USER} -d "${ETHERPATH}" -b -- ${ARGS}
+#    eend $?
+#}
+
+#stop() {
+#    ebegin "Stopping ${RC_SVCNAME}"
+#        start-stop-daemon -K -x ${NODE} -u ${USER} -d "${ETHERPATH}" 
+#    eend $?
+#}

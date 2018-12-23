@@ -15,8 +15,8 @@ SRC_URI="https://github.com/ether/etherpad-lite/archive/${PV}.tar.gz"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="Apache-2.0"
-# TODO other IUSE flags could be: abiword soffice tidy doc
-IUSE="mysql ssl"
+# TODO other IUSE flags could be: abiword soffice tidy doc ssl webapp-config nodejs
+IUSE="mysql"
 
 RDEPEND="
     >=net-libs/nodejs-6.9.0[npm]

@@ -12,6 +12,7 @@ PHP_EXT_S="${WORKDIR}/${MY_P}"
 inherit php-ext-pecl-r3
 
 DESCRIPTION="PHP extension for interfacing with Apache Solr"
+HOMEPAGE="https://pecl.php.net/package/solr"
 LICENSE="PHP-3.01"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"

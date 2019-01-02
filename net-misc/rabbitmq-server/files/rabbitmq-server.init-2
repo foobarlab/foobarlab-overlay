@@ -2,8 +2,6 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-pidfile=${RABBITMQ_PID_FILE}
-
 depend() {
 	need net
 	use dns epmd
@@ -13,23 +11,23 @@ depend() {
 start() {
 	ebegin "Starting ${name:-$RC_SVCNAME}"
 	/usr/sbin/rabbitmq-server -detached >> ${RABBITMQ_LOG_DIR}/startup.log 2>> ${RABBITMQ_LOG_DIR}/startup.err
-	/usr/sbin/rabbitmqctl status | sed -n 's/[^p]*pid,\([0-9]*\)[^0-9]*/\1/p' > ${pidfile}
-	/usr/sbin/rabbitmqctl -q wait ${pidfile}
+	/usr/sbin/rabbitmqctl status | sed -n 's/[^p]*pid,\([0-9]*\)[^0-9]*/\1/p' > ${RABBITMQ_PID_FILE}
+	/usr/sbin/rabbitmqctl -q wait ${RABBITMQ_PID_FILE}
 	eend $? "Failed to start ${name:-$RC_SVCNAME}"
 }
 
 stop() {
 	ebegin "Stopping ${name:-$RC_SVCNAME}"
-	/usr/sbin/rabbitmqctl stop ${pidfile} >> ${RABBITMQ_LOG_DIR}/shutdown.log 2>> ${RABBITMQ_LOG_DIR}/shutdown.err
+	/usr/sbin/rabbitmqctl stop ${RABBITMQ_PID_FILE} >> ${RABBITMQ_LOG_DIR}/shutdown.log 2>> ${RABBITMQ_LOG_DIR}/shutdown.err
 	eend $? "Failed to stop ${name:-$RC_SVCNAME}"
 }
 
-start_pre() {
-	checkpath -q -d -m 0755 -o ${RABBITMQ_USER} $(dirname $RABBITMQ_PID_FILE)
-}
+#start_pre() {
+#	checkpath -q -d -m 0755 -o ${RABBITMQ_USER} $(dirname ${RABBITMQ_PID_FILE})
+#}
 
 stop_post() {
-	if [ -f ${pidfile} ]; then
-		rm -f ${pidfile} 
+	if [ -f ${RABBITMQ_PID_FILE} ]; then
+		rm -f ${RABBITMQ_PID_FILE}
 	fi
 }

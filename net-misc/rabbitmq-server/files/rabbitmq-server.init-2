@@ -22,9 +22,9 @@ stop() {
 	eend $? "Failed to stop ${name:-$RC_SVCNAME}"
 }
 
-#start_pre() {
-#	checkpath -q -d -m 0755 -o ${RABBITMQ_USER} $(dirname ${RABBITMQ_PID_FILE})
-#}
+start_pre() {
+	checkpath -q -d -m 0755 -o ${RABBITMQ_USER} $(dirname ${RABBITMQ_PID_FILE})
+}
 
 stop_post() {
 	if [ -f ${RABBITMQ_PID_FILE} ]; then

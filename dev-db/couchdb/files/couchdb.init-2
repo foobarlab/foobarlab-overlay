@@ -18,7 +18,6 @@ start_pre() {
 }
 
 stop_post() {
-  killall -u ${COUCHDB_USER%:*} epmd
   if [ -f ${COUCHDB_PID_FILE} ]; then
     rm -f ${COUCHDB_PID_FILE}
   fi

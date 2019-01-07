@@ -12,11 +12,3 @@ depend() {
 	use epmd
 	after firewall
 }
-
-start_pre() {
-	checkpath -q -d -m 0755 -o ${COUCHDB_USER} /run/couchdb
-}
-
-stop_post() {
-	killall -u ${COUCHDB_USER%:*} epmd
-}

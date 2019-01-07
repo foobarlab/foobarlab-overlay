@@ -12,3 +12,14 @@ depend() {
 	use epmd
 	after firewall
 }
+
+start_pre() {
+  checkpath -q -d -m 0755 -o ${COUCHDB_USER} $(dirname ${COUCHDB_PID_FILE})
+}
+
+stop_post() {
+  killall -u ${COUCHDB_USER%:*} epmd
+  if [ -f ${COUCHDB_PID_FILE} ]; then
+    rm -f ${COUCHDB_PID_FILE}
+  fi
+}

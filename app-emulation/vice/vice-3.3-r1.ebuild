@@ -3,7 +3,8 @@
 
 # TODO fix sdl, Xawd3 and fullscreen see: https://bugs.gentoo.org/656722
 # TODO fix sdlsound (IUSE should not be turned on by default, only when sdl is set)
-# TODO test sdl2 support (currently sound is not working)
+# TODO test sdl2 support (currently sound is not working when pulseaudio and alsa is disabled)
+# TODO screen recording using FFMpeg with matroska seem not to work (maybe patch from 3.1 is required)
 
 EAPI=6
 

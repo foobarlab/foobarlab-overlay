@@ -96,3 +96,10 @@ src_install() {
 	pax-mark mr "${D}/opt/couchdb/bin/couchjs"
 	pax-mark mr "${D}/opt/couchdb/lib/couch-${PV}/priv/couchjs"
 }
+
+pkg_postinst() {
+    elog "Visit Fauxton at http://127.0.0.1:5984/_utils#setup."
+    elog "Please consult http://docs.couchdb.org/en/stable/setup/"
+    elog "and follow the instructions for either a single node or"
+    elog "cluster setup."
+}

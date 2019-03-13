@@ -102,4 +102,8 @@ pkg_postinst() {
     elog "Please consult http://docs.couchdb.org/en/stable/setup/"
     elog "and follow the instructions for either a single node or"
     elog "cluster setup."
+    # TODO analyze and warn on low system limits (limits.conf, ulimit, sysctl.conf...)
+    ewarn "In case you run into trouble using CouchDB you most"
+    ewarn "likely have to tune your system resources according to:"
+    ewarn "http://docs.couchdb.org/en/stable/maintenance/performance.html#system-resource-limits"
 }

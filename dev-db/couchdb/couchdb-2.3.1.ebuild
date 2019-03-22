@@ -96,3 +96,14 @@ src_install() {
 	pax-mark mr "${D}/opt/couchdb/bin/couchjs"
 	pax-mark mr "${D}/opt/couchdb/lib/couch-${PV}/priv/couchjs"
 }
+
+pkg_postinst() {
+    elog "Visit Fauxton at http://127.0.0.1:5984/_utils#setup."
+    elog "Please consult http://docs.couchdb.org/en/stable/setup/"
+    elog "and follow the instructions for either a single node or"
+    elog "cluster setup."
+    # TODO analyze and warn on low system limits (limits.conf, ulimit, sysctl.conf...)
+    ewarn "In case you run into trouble using CouchDB you most"
+    ewarn "likely have to tune your system resources according to:"
+    ewarn "http://docs.couchdb.org/en/stable/maintenance/performance.html#system-resource-limits"
+}

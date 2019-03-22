@@ -1,10 +1,10 @@
 #!/sbin/openrc-run
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 pidfile=${COUCHDB_PID_FILE}
 command=${EXEC:-/opt/couchdb/bin/couchdb}
-command_args="-o /dev/null -e /dev/null ${COUCHDB_OPTIONS}"
+command_args="-o ${COUCHDB_STDOUT_FILE} -e ${COUCHDB_STDERR_FILE} ${COUCHDB_OPTIONS}"
 start_stop_daemon_args="--background --make-pidfile --user ${COUCHDB_USER}"
 
 depend() {

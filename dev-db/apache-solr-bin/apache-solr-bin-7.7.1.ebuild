@@ -67,6 +67,10 @@ src_install() {
 	dosym /etc/${MY_PN}/resources /opt/${MY_PN}/server/resources
 	dosym /var/log/${MY_PN} /opt/${MY_PN}/server/logs
 
+    # /opt/solr/server/scripts/cloud-scripts
+    fperms 750 /opt/${MY_PN}/server/scripts/cloud-scripts/snapshotscli.sh
+	fperms 750 /opt/${MY_PN}/server/scripts/cloud-scripts/zkcli.sh
+
 	# /var/lib/solr
 	insinto /var/lib/${MY_PN}
 	doins -r server/solr/*

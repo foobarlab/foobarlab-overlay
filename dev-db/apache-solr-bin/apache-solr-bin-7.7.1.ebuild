@@ -44,7 +44,7 @@ src_install() {
 
 	# /opt/solr
 	insinto /opt/${MY_PN}
-	doins -r dist
+	doins -r {dist,contrib,example,licenses}
 	dodoc *.txt
 
 	# /opt/solr/bin

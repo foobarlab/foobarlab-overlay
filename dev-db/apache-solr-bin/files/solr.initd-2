@@ -30,6 +30,7 @@ start() {
 	chown ${SOLR_USER}:${SOLR_GROUP} ${PIDDIR}
 
 	start-stop-daemon --start \
+        --quiet \
 		--chdir ${SOLR_SERVER_DIR} \
 		--user ${SOLR_USER}:${SOLR_GROUP} \
 		--exec ${SOLR_TIP}/bin/solr \

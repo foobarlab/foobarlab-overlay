@@ -7,7 +7,7 @@
 #SOLR_JVM="icedtea-bin-8"
 
 # Additional options to pass to the JVM.
-JAVA_OPTS="-server -XX:CMSFullGCsBeforeCompaction=1 -XX:CMSTriggerPermRatio=80"
+JAVA_OPTS="-server"
 
 # Java fine-tuning.
 #JAVA_MEM_OPTS=""
@@ -21,8 +21,8 @@ SOLR_GROUP=solr
 # Memory settings
 #SOLR_HEAP=""
 
-# Solr home directory.
-#SOLR_HOME=/var/lib/solr
+# The directory where all data is found.
+#SOLR_DATA_HOME=/var/lib/solr
 
 # The host to run this instance.
 #SOLR_HOST=localhost

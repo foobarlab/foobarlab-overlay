@@ -1,0 +1,68 @@
+#!/sbin/openrc-run
+# Copyright 1999-2019 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+: ${JAVA_HOME:=$(java-config ${SOLR_JVM:+--select-vm ${SOLR_JVM}} --jre-home)}
+: ${SOLR_HOME:=/var/lib/solr}
+: ${SOLR_DATA_HOME:=${SOLR_HOME}}
+: ${SOLR_HOST:=localhost}
+: ${SOLR_PORT:=8983}
+: ${SOLR_STOP_KEY:=solrrocks}
+: ${SOLR_TIMEZONE:=UTC}
+: ${SOLR_LOG_DIR:=/var/log/solr}
+: ${SOLR_MODULE:=http}
+
+PIDDIR=/var/run/solr
+PIDFILE=${PIDDIR}/solr-${SOLR_PORT}.pid
+JAVA=${JAVA_HOME}/bin/java
+SOLR_TIP=/opt/solr
+SOLR_SERVER_DIR=${SOLR_TIP}/server
+
+depend() {
+	use dns logger net
+}
+
+start() {
+	ebegin "Starting ${RC_SVCNAME}"
+
+	mkdir -p ${PIDDIR}
+	chown ${SOLR_USER}:${SOLR_GROUP} ${PIDDIR}
+
+	start-stop-daemon --start \
+		--quiet --background \
+		--chdir ${SOLR_SERVER_DIR} \
+		--user ${SOLR_USER}:${SOLR_GROUP} \
+		--make-pid --pidfile ${PIDFILE} \
+		--exec ${SOLR_TIP}/bin/solr \
+		-- \
+		  start \
+		  -v \
+		  -f \
+          -s ${SOLR_HOME} \
+          -d ${SOLR_SERVER_DIR} \
+          -t ${SOLR_DATA_HOME} \
+          -h ${SOLR_HOST} \
+          -p ${SOLR_PORT} \
+		  -k ${SOLR_STOP_KEY} \
+		  -a "${JAVA_OPTS}"
+
+	eend $?
+}
+
+stop() {
+	ebegin "Stopping ${RC_SVCNAME}"
+
+    start-stop-daemon --stop \
+        --quiet \
+        --pidfile ${PIDFILE} \
+        --exec ${SOLR_TIP}/bin/solr \
+        -- \
+          stop \
+          -v \
+          -k ${SOLR_STOP_KEY} \
+          -a "${JAVA_OPTS}"
+
+	eend $?
+}
+
+# TODO map other solr wrapper script commands: restart, status, healthcheck, create, create_core, create_collection, delete, version, zk, auth, assert, config

@@ -36,7 +36,6 @@ start() {
 		--exec ${SOLR_TIP}/bin/solr \
 		-- \
 		  start \
-		  -v \
 		  -s ${SOLR_HOME_DIR} \
           -d ${SOLR_SERVER_DIR} \
           -t ${SOLR_DATA_HOME} \
@@ -57,7 +56,6 @@ stop() {
         --exec ${SOLR_TIP}/bin/solr \
         -- \
           stop \
-          -v \
           -s ${SOLR_HOME_DIR} \
           -d ${SOLR_SERVER_DIR} \
           -t ${SOLR_DATA_HOME} \

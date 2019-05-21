@@ -38,7 +38,7 @@ pkg_setup() {
 }
 
 src_compile() {
-	emake all docs dist
+	emake all docs
 }
 
 src_install() {

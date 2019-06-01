@@ -18,7 +18,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND=">=dev-lang/erlang-20.3[ssl]
-         <dev-lang/erlang-22[ssl]
+         <dev-lang/erlang-22.1[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip
@@ -38,7 +38,7 @@ pkg_setup() {
 }
 
 src_compile() {
-	emake all docs dist
+	emake all docs
 }
 
 src_install() {

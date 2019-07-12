@@ -18,7 +18,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND=">=dev-lang/erlang-20.3[ssl]
-         <dev-lang/erlang-22.1[ssl]
+         <dev-lang/erlang-23[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip
@@ -51,7 +51,9 @@ src_install() {
 
 	einfo "Installing Erlang modules to ${targetdir}"
 	insinto "${targetdir}"
-	doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv plugins
+	# TODO: 'plugins' produces an error
+	#doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv plugins
+    doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv
 
 	einfo "Installing server scripts to /usr/sbin"
 	rm -v deps/rabbit/scripts/*.bat

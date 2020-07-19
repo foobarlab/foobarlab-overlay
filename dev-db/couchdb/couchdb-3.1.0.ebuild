@@ -16,7 +16,7 @@ IUSE="libressl selinux test"
 
 RDEPEND=">=dev-libs/icu-63.0:=
 		<dev-lang/erlang-23[ssl]
-		>=dev-lang/spidermonkey-68
+		~dev-lang/spidermonkey-1.8.5
 		!libressl? ( dev-libs/openssl:0 )
 		libressl? ( dev-libs/libressl )
 		net-misc/curl

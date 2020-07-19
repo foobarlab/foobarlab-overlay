@@ -17,8 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 RESTRICT="test"
 
-RDEPEND=">=dev-lang/erlang-20.3[ssl]
-         <dev-lang/erlang-23[ssl]
+RDEPEND=">=dev-lang/erlang-21.3[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip

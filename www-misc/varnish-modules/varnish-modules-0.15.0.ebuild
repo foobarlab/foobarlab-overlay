@@ -12,12 +12,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND=">=www-servers/varnish-4.0.0
-         <www-servers/varnish-6.0.0"
+RDEPEND=">=www-servers/varnish-4.0.0"
 DEPEND="${RDEPEND}"
 
 src_prepare() {
     eapply_user
     ${S}/bootstrap
 }
-

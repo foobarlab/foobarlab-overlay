@@ -19,4 +19,3 @@ src_prepare() {
     eapply_user
     ${S}/bootstrap
 }
-

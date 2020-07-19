@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd:4.5
 	app-text/xmlto
 	>=dev-lang/elixir-1.6.6
-	<dev-lang/elixir-1.7.0
+	<dev-lang/elixir-1.11.0
 	dev-libs/libxslt
 	$(python_gen_any_dep 'dev-python/simplejson[${PYTHON_USEDEP}]')
 "
@@ -51,7 +51,7 @@ src_install() {
 
 	einfo "Installing Erlang modules to ${targetdir}"
 	insinto "${targetdir}"
-    doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv plugins
+	doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv plugins
 
 	einfo "Installing server scripts to /usr/sbin"
 	rm -v deps/rabbit/scripts/*.bat

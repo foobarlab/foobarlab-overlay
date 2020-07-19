@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="libressl selinux test"
 
-RDEPEND=">=dev-libs/icu-4.3.1:=
+RDEPEND=">=dev-libs/icu-63.0:=
 		<dev-lang/erlang-23[ssl]
 		>=dev-lang/spidermonkey-68
 		!libressl? ( dev-libs/openssl:0 )
@@ -106,4 +106,5 @@ pkg_postinst() {
     ewarn "In case you run into trouble using CouchDB you most"
     ewarn "likely have to tune your system resources according to:"
     ewarn "http://docs.couchdb.org/en/stable/maintenance/performance.html#system-resource-limits"
+    # TODO couchdb 3+ requires an admin user, see: https://docs.couchdb.org/en/stable/config/auth.html#config-admins
 }

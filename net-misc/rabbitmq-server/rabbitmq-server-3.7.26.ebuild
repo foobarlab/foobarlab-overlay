@@ -68,7 +68,6 @@ src_install() {
 	insinto /etc/rabbitmq
 	insopts -m0640 -orabbitmq -grabbitmq
 	doins "${FILESDIR}/rabbitmq-env.conf"
-	#doins "${FILESDIR}/rabbitmq.conf"
 	newins "${FILESDIR}/rabbitmq.conf-2" rabbitmq.conf
 
 	# install documentation

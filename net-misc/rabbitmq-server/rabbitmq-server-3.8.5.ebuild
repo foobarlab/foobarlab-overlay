@@ -18,7 +18,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND=">=dev-lang/erlang-21.3[ssl]
-         <dev-lang/erlang-24[ssl]
+         <dev-lang/erlang-23[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip
@@ -50,14 +50,14 @@ src_install() {
 
 	einfo "Installing Erlang modules to ${targetdir}"
 	insinto "${targetdir}"
-	doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv plugins
+    doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv
 
 	einfo "Installing server scripts to /usr/sbin"
 	rm -v deps/rabbit/scripts/*.bat
 	exeinto /usr/libexec/rabbitmq
 	for script in deps/rabbit/scripts/*; do
 		doexe ${script}
-		newsbin "${FILESDIR}"/rabbitmq-script-wrapper $(basename $script)
+		newsbin "${FILESDIR}"/rabbitmq-script-wrapper-2 $(basename $script)
 	done
 
 	# install the init.d and conf.d script
@@ -68,7 +68,7 @@ src_install() {
 	insinto /etc/rabbitmq
 	insopts -m0640 -orabbitmq -grabbitmq
 	doins "${FILESDIR}/rabbitmq-env.conf"
-	doins "${FILESDIR}/rabbitmq.conf"
+	newins "${FILESDIR}/rabbitmq.conf-2" rabbitmq.conf
 
 	# install documentation
 	dodoc deps/rabbit/docs/*.example
@@ -109,4 +109,5 @@ pkg_preinst() {
 		elog
 		elog "http://www.rabbitmq.com/access-control.html"
 	fi
+    # TODO add release notes for 3.8.4+ (see: https://www.rabbitmq.com/which-erlang.html#compatibility-matrix)
 }

@@ -27,7 +27,7 @@ How to Contribute to this Overlay
 
 :author: Martin Eisenbarth
 :contact: eyesee@foobarlab.net
-:language: English
+:language: English, German, French
 
 Greetings GitHub Users!
 =======================

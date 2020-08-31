@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<maintainer type="person">
+		<email>eyesee@foobarlab.net</email>
+	</maintainer>
 	<use>
 		<flag name="hipe">HIgh Performance Erlang extension</flag>
 		<flag name="kpoll">Enable kernel polling support</flag>

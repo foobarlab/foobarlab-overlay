@@ -1,9 +1,9 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_{6,7,8} )
 
 inherit eutils python-any-r1 user
 
@@ -13,12 +13,16 @@ SRC_URI="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${PV}/ra
 
 LICENSE="GPL-2 MPL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 RESTRICT="test"
 
+# This is the first release to officially support Erlang 23.
+# There is one remaining known Erlang 23 incompatibility:
+# rabbitmq-diagnostics observer will fail on Erlang 23.
+# This will be addressed in a future release.
 RDEPEND=">=dev-lang/erlang-21.3[ssl]
-         <dev-lang/erlang-23[ssl]
+         <dev-lang/erlang-24[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip
@@ -26,6 +30,7 @@ DEPEND="${RDEPEND}
 	app-text/docbook-xml-dtd:4.5
 	app-text/xmlto
 	>=dev-lang/elixir-1.8.0
+	<dev-lang/elixir-1.11.0
 	dev-libs/libxslt
 	$(python_gen_any_dep 'dev-python/simplejson[${PYTHON_USEDEP}]')
 "
@@ -37,7 +42,7 @@ pkg_setup() {
 }
 
 src_compile() {
-	emake all docs
+	emake all docs dist
 }
 
 src_install() {
@@ -50,7 +55,7 @@ src_install() {
 
 	einfo "Installing Erlang modules to ${targetdir}"
 	insinto "${targetdir}"
-    doins -r deps/rabbit/ebin deps/rabbit/escript deps/rabbit/include deps/rabbit/priv
+    doins -r deps/rabbit/ebin deps/rabbit/include deps/rabbit/priv escript plugins
 
 	einfo "Installing server scripts to /usr/sbin"
 	rm -v deps/rabbit/scripts/*.bat
@@ -68,7 +73,9 @@ src_install() {
 	insinto /etc/rabbitmq
 	insopts -m0640 -orabbitmq -grabbitmq
 	doins "${FILESDIR}/rabbitmq-env.conf"
-	newins "${FILESDIR}/rabbitmq.conf-2" rabbitmq.conf
+	newins "${FILESDIR}/rabbitmq.conf-3" rabbitmq.conf
+	# install managment plugin by default:
+	doins "${FILESDIR}/enabled_plugins"
 
 	# install documentation
 	dodoc deps/rabbit/docs/*.example
@@ -82,6 +89,7 @@ src_install() {
 
 	# create the mnesia directory
 	diropts -m 0770 -o rabbitmq -g rabbitmq
+	#keepdir /var/lib/rabbitmq{,/mnesia}
 	dodir /var/lib/rabbitmq{,/mnesia}
 }
 

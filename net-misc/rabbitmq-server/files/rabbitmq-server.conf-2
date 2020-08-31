@@ -1,4 +1,7 @@
 # Options for RabbitMQ OpenRC init file
 RABBITMQ_USER="rabbitmq"
-RABBITMQ_PID_FILE="/run/rabbitmq/rabbitmq.pid"
+RABBITMQ_GROUP="rabbitmq"
+RABBITMQ_PID_FILE="/var/run/rabbitmq.pid"
 RABBITMQ_LOG_DIR="/var/log/rabbitmq"
+RABBITMQ_NODENAME="rabbitmq@localhost"
+RABBITMQ_NODE_IP_ADDRESS="127.0.0.1"

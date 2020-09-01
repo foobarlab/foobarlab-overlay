@@ -1,6 +1,8 @@
 # Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+# CouchDB install docs: https://docs.couchdb.org/en/latest/install/unix.html
+
 EAPI=7
 
 inherit eutils multilib pax-utils user
@@ -12,10 +14,11 @@ SRC_URI="mirror://apache/couchdb/source/${PV}/apache-${P}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="libressl selinux test"
+IUSE="libressl selinux test doc"
 
 RDEPEND=">=dev-libs/icu-63.0:=
-		<dev-lang/erlang-23[ssl]
+        >=dev-lang/erlang-22.0.5[ssl]
+		<dev-lang/erlang-23.0[ssl]
 		~dev-lang/spidermonkey-1.8.5
 		!libressl? ( dev-libs/openssl:0 )
 		libressl? ( dev-libs/libressl )
@@ -28,6 +31,7 @@ DEPEND="${RDEPEND}
 		>=dev-util/rebar-2.6.0
 		<dev-util/rebar-3.0.0
 		sys-devel/autoconf-archive
+        sys-apps/help2man
 "
 
 RESTRICT=test

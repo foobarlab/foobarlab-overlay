@@ -73,7 +73,7 @@ src_install() {
 	insinto /etc/rabbitmq
 	insopts -m0640 -orabbitmq -grabbitmq
 	doins "${FILESDIR}/rabbitmq-env.conf"
-	newins "${FILESDIR}/rabbitmq.conf-3" rabbitmq.conf
+	newins "${FILESDIR}/rabbitmq.conf-2" rabbitmq.conf
 
 	# install default plugins (management)
 	doins "${FILESDIR}/enabled_plugins"

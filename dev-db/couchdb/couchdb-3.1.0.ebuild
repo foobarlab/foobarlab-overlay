@@ -14,7 +14,7 @@ SRC_URI="mirror://apache/couchdb/source/${PV}/apache-${P}.tar.gz"
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="libressl selinux test doc"
+IUSE="libressl selinux test doc"  # FIXME do 'doc' (help2man)
 
 RDEPEND=">=dev-libs/icu-63.0:=
         >=dev-lang/erlang-22.0.5:0=[ssl]
@@ -102,13 +102,18 @@ src_install() {
 }
 
 pkg_postinst() {
+    
     elog "Visit Fauxton at http://127.0.0.1:5984/_utils#setup."
     elog "Please consult http://docs.couchdb.org/en/stable/setup/"
     elog "and follow the instructions for either a single node or"
     elog "cluster setup."
+    
     # TODO analyze and warn on low system limits (limits.conf, ulimit, sysctl.conf...)
     ewarn "In case you run into trouble using CouchDB you most"
     ewarn "likely have to tune your system resources according to:"
     ewarn "http://docs.couchdb.org/en/stable/maintenance/performance.html#system-resource-limits"
-    # TODO couchdb 3+ requires an admin user, see: https://docs.couchdb.org/en/stable/config/auth.html#config-admins
+    
+    # couchdb 3+ requires an admin user
+	ewarn "To run CouchDB you will need to create an admin user:"
+	ewarn "https://docs.couchdb.org/en/stable/config/auth.html#config-admins"
 }

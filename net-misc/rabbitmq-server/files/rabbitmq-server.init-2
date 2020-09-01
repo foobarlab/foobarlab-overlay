@@ -2,6 +2,8 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
+command_user="${RABBITMQ_USER}:${RABBITMQ_GROUP}"
+
 depend() {
 	need net epmd
 	use dns
@@ -12,16 +14,28 @@ start() {
 	ebegin "Starting RabbitMQ"
 	/sbin/start-stop-daemon \
 		--start --background \
-		--pidfile /var/run/rabbitmq.pid --make-pidfile \
-		--stdout /var/log/rabbitmq/startup.log \
-		--stderr /var/log/rabbitmq/startup.err \
+		--pidfile ${RABBITMQ_PID_FILE} --make-pidfile \
+		--stdout ${RABBITMQ_LOG_BASE}/startup.log \
+		--stderr ${RABBITMQ_LOG_BASE}/startup.err \
 		--exec /usr/sbin/rabbitmq-server
-	/usr/sbin/rabbitmqctl -q wait /var/run/rabbitmq.pid
+	/usr/sbin/rabbitmqctl -q wait ${RABBITMQ_PID_FILE}
 	eend $?
 }
 
 stop() {
 	ebegin "Stopping RabbitMQ"
-	/usr/sbin/rabbitmqctl stop /var/run/rabbitmq.pid >> /var/log/rabbitmq/shutdown.log 2>> /var/log/rabbitmq/shutdown.err
+	#/usr/sbin/rabbitmqctl stop ${RABBITMQ_PID_FILE} 1>> ${RABBITMQ_LOG_BASE}/shutdown.log 2>> ${RABBITMQ_LOG_BASE}/shutdown.err
+	/sbin/start-stop-daemon \
+		--stop \
+		--pidfile ${RABBITMQ_PID_FILE} \
+		--retry=TERM/30/KILL/5 \
+		--exec /usr/sbin/rabbitmqctl stop ${RABBITMQ_PID_FILE}
 	eend $?
+}
+
+# clean stale pidfile
+stop_post() {
+  if [ -f ${RABBITMQ_PID_FILE} ]; then
+    rm -f ${RABBITMQ_PID_FILE}
+  fi
 }

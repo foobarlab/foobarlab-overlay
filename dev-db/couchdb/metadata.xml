@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<maintainer type="person">
-	<email>eyesee@foobarlab.net</email>
-</maintainer>
+	<maintainer type="person">
+		<email>eyesee@foobarlab.net</email>
+	</maintainer>
+	<longdescription>
+		Apache CouchDB is an open source document-oriented database-management
+		system, accessible usinga RESTful JavaScript Object Notation (JSON) API.
+		The term Couch is an acronym for Cluster Of Unreliable Commodity
+		Hardware, reflecting the goal of CouchDB being extremely scalable,
+		offering high availability and reliability, even while running on hardware
+		that is typically prone to failure.
+	</longdescription>
 </pkgmetadata>

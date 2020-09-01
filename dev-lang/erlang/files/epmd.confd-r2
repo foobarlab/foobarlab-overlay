@@ -1,0 +1,4 @@
+# Configure defaults, see http://erlang.org/doc/man/epmd.html#environment_variables
+#ERL_EPMD_ADDRESS="127.0.0.1,::1"
+#ERL_EPMD_PORT="4369"
+#ERL_EPMD_RELAXED_COMMAND_CHECK="true"

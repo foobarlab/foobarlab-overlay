@@ -17,8 +17,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE="libressl selinux test doc"
 
 RDEPEND=">=dev-libs/icu-63.0:=
-        >=dev-lang/erlang-22.0.5[ssl]
-		<dev-lang/erlang-23.0[ssl]
+        >=dev-lang/erlang-22.0.5:0=[ssl]
+		<dev-lang/erlang-23:0=[ssl]
 		~dev-lang/spidermonkey-1.8.5
 		!libressl? ( dev-libs/openssl:0 )
 		libressl? ( dev-libs/libressl )

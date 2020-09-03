@@ -75,8 +75,8 @@ src_install() {
 	doins "${FILESDIR}/rabbitmq-env.conf"
 	newins "${FILESDIR}/rabbitmq.conf-2" rabbitmq.conf
 
-	# install default plugins (management)
-	doins "${FILESDIR}/enabled_plugins"
+	# install default plugins (management, etc.)
+	#doins "${FILESDIR}/enabled_plugins"
 
 	# install documentation
 	dodoc deps/rabbit/docs/*.example

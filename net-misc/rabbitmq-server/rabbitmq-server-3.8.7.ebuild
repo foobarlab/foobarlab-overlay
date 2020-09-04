@@ -11,7 +11,7 @@ DESCRIPTION="RabbitMQ is a high-performance AMQP-compliant message broker writte
 HOMEPAGE="https://www.rabbitmq.com/"
 SRC_URI="https://github.com/rabbitmq/rabbitmq-server/releases/download/v${PV}/rabbitmq-server-${PV}.tar.xz"
 
-LICENSE="GPL-2 MPL-1.1"
+LICENSE="GPL-2 MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
@@ -22,7 +22,7 @@ RESTRICT="test"
 # rabbitmq-diagnostics observer will fail on Erlang 23.
 # This will be addressed in a future release.
 RDEPEND=">=dev-lang/erlang-21.3[ssl]
-         <dev-lang/erlang-24[ssl]
+         <dev-lang/erlang-23.1[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip

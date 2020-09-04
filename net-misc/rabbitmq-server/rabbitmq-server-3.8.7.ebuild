@@ -17,10 +17,6 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 RESTRICT="test"
 
-# This is the first release to officially support Erlang 23.
-# There is one remaining known Erlang 23 incompatibility:
-# rabbitmq-diagnostics observer will fail on Erlang 23.
-# This will be addressed in a future release.
 RDEPEND=">=dev-lang/erlang-21.3[ssl]
          <dev-lang/erlang-23.1[ssl]
 "

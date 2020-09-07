@@ -10,8 +10,8 @@ command_args="-o ${COUCHDB_STDOUT_FILE} -e ${COUCHDB_STDERR_FILE} ${COUCHDB_OPTI
 start_stop_daemon_args="--background --make-pidfile --user ${COUCHDB_USER}"
 
 depend() {
-	need net
-	use epmd
+	need net epmd
+	use dns
 	after firewall
 }
 

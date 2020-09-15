@@ -21,21 +21,12 @@ RDEPEND=">=virtual/jre-1.8"
 
 S=${WORKDIR}/eclipse
 
-pkg_setup() {
-	enewgroup ${MY_PN} || die "failed to create user group"
-	enewuser ${MY_PN} -1 -1 /var/lib/${MY_PN} ${MY_PN} || die "failed to create user"
-}
-
 src_install() {
 
-	# TODO
-	newinitd "${FILESDIR}/orion.initd" ${MY_PN}
-	newconfd "${FILESDIR}/orion.confd" ${MY_PN}
-
 	# /opt/orion
+	doexe orion
 	insinto /opt/${MY_PN}
 	doins -r *
-	doexe orion   # FIXME
 	dosym /opt/${MY_PN}/orion /usr/bin/orion
 
 	# /var/log/orion

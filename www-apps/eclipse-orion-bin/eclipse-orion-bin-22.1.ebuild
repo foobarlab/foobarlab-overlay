@@ -2,8 +2,6 @@
 
 EAPI=7
 
-inherit user
-
 MY_PN="orion"
 DMF="R-${PV}-202005041748"
 
@@ -22,15 +20,9 @@ RDEPEND=">=virtual/jre-1.8"
 S=${WORKDIR}/eclipse
 
 src_install() {
-
-	# /opt/orion
-	doexe orion
 	insinto /opt/${MY_PN}
 	doins -r *
+	exeinto /opt/${MY_PN}
+	doexe orion
 	dosym /opt/${MY_PN}/orion /usr/bin/orion
-
-	# /var/log/orion
-	keepdir /var/log/${MY_PN}
-	fperms 750 /var/log/${MY_PN}
-	fowners ${MY_PN}:${MY_PN} /var/log/${MY_PN}
 }

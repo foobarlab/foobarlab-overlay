@@ -12,7 +12,7 @@ SRC_URI="https://download.eclipse.org/orion/drops/${DMF}/eclipse-orion-22.0.0S1-
 
 KEYWORDS="~amd64"
 SLOT="0"
-LICENSE="EPL-2.0"
+LICENSE="EPL-1.0"
 
 DEPEND=""
 RDEPEND=">=virtual/jre-1.8"

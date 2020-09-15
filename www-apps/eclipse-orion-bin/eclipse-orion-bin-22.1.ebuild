@@ -25,4 +25,7 @@ src_install() {
 	exeinto /opt/${MY_PN}
 	doexe orion
 	dosym /opt/${MY_PN}/orion /usr/bin/orion
+	
+	# FIXME put orion.conf in /etc, set orion.ini: -Dorion.core.configFile=/etc/orion.conf
+	# FIXME modify orion.ini => remove '-console', set '-data' (default workspace), set port?
 }

@@ -12,7 +12,7 @@ SRC_URI="https://download.eclipse.org/orion/drops/${DMF}/eclipse-orion-22.0.0S1-
 
 KEYWORDS="~amd64"
 SLOT="0"
-LICENSE="EPL-2.0"
+LICENSE="EPL-1.0"
 
 DEPEND=""
 RDEPEND=">=virtual/jre-1.8"
@@ -25,4 +25,7 @@ src_install() {
 	exeinto /opt/${MY_PN}
 	doexe orion
 	dosym /opt/${MY_PN}/orion /usr/bin/orion
+	
+	# FIXME put orion.conf in /etc, set orion.ini: -Dorion.core.configFile=/etc/orion.conf
+	# FIXME modify orion.ini => remove '-console', set '-data' (default workspace), set port?
 }

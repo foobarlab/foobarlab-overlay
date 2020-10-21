@@ -3,7 +3,7 @@
 
 EAPI=7
 
-PYTHON_COMPAT=( python3_{6,7} )
+PYTHON_COMPAT=( python3_{6..8} )
 
 inherit distutils-r1 eutils
 
@@ -13,7 +13,7 @@ SRC_URI="https://releases.ansible.com/${PN}/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~arm ~arm64 ~ppc64 ~x86 ~x64-macos"
+KEYWORDS="amd64 ~arm arm64 ~ppc64 x86 ~x64-macos"
 IUSE="doc test"
 RESTRICT="test"
 
@@ -29,10 +29,11 @@ RDEPEND="
 	dev-python/pexpect[${PYTHON_USEDEP}]
 	net-misc/sshpass
 	virtual/ssh
-	!app-admin/ansible
+	!<app-admin/ansible-2.10
 "
+# ansible-2.10 or above is needed for the collections
 DEPEND="
-	!app-admin/ansible
+	!<app-admin/ansible-2.10
 	dev-python/setuptools[${PYTHON_USEDEP}]
 	>=dev-python/packaging-16.6[${PYTHON_USEDEP}]
 	doc? (

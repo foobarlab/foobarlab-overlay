@@ -7,9 +7,7 @@ name="Erlang Port Mapper Daemon"
 command="/usr/bin/epmd"
 command_user="epmd"
 command_group="epmd"
-
 command_args="-daemon -relaxed_command_check -address 127.0.0.1,::1"
-
 command_background=yes
 pidfile="/var/run/epmd.pid"
 

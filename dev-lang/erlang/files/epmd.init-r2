@@ -7,12 +7,7 @@ name="Erlang Port Mapper Daemon"
 command="/usr/bin/epmd"
 command_user="epmd"
 command_group="epmd"
-
-# epmd args, see: http://erlang.org/doc/man/epmd.html
-#command_args="-address 127.0.0.1,::1"
-# alternative: allow killing epmd even when there are active nodes:
 command_args="-daemon -relaxed_command_check -address 127.0.0.1,::1"
-
 command_background=yes
 pidfile="/var/run/epmd.pid"
 
@@ -20,6 +15,14 @@ depend() {
 	need net.lo
 	before sshd
 	after firewall
+}
+
+start() {
+    ebegin "Starting ${name}"
+    start-stop-daemon --start --quiet \
+        --pidfile ${pidfile} \
+        --exec ${command} -- ${command_args}
+    eend $?
 }
 
 stop() {

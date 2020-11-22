@@ -28,7 +28,7 @@ DEPEND="
 	${CDEPEND}
 	>=virtual/jdk-1.8"
 
-S="${WORKDIR}/clojure-clojure-76b87a6"
+S="${WORKDIR}/clojure-clojure-0e9844c"
 
 DOCS=( changes.md CONTRIBUTING.md readme.txt )
 

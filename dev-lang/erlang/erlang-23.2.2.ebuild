@@ -49,7 +49,7 @@ S="${WORKDIR}/otp-OTP-${PV}"
 PATCHES=(
 	"${FILESDIR}"/18.2.1-wx3.0.patch
 	"${FILESDIR}"/${PN}-22.0-dont-ignore-LDFLAGS.patch
-	"${FILESDIR}"/${PN}-23.1.2-ac2.70.patch
+	#"${FILESDIR}"/${PN}-23.1.2-ac2.70.patch # TODO remove
 )
 
 SITEFILE=50"${PN}"-gentoo.el

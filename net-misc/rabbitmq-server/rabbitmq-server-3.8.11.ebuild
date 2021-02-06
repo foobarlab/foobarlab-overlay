@@ -18,7 +18,7 @@ IUSE=""
 RESTRICT="test"
 
 RDEPEND=">=dev-lang/erlang-22.3[ssl]
-         <dev-lang/erlang-23.1[ssl]
+         <dev-lang/erlang-23.3[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip

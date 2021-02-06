@@ -48,6 +48,7 @@ src_configure() {
 	econf \
 		--with-erlang="${EPREFIX}"/usr/$(get_libdir)/erlang/usr/include \
 		--with-curl \
+		--spidermonkey-version=68 \
 		--user=couchdb
 }
 

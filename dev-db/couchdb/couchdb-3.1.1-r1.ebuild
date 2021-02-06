@@ -19,7 +19,7 @@ IUSE="libressl selinux test doc"  # FIXME do 'doc' (help2man)
 RDEPEND=">=dev-libs/icu-63.0:=
         >=dev-lang/erlang-22.0.5[ssl]
 		<dev-lang/erlang-23[ssl]
-		dev-lang/spidermonkey
+		dev-lang/spidermonkey:68
 		!libressl? ( dev-libs/openssl:0 )
 		libressl? ( dev-libs/libressl )
 		net-misc/curl

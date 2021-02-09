@@ -42,12 +42,12 @@ _emake() {
 		CLIENT_LDFLAGS="${LDFLAGS}" \
 		LIB_SUFFIX="${LIBDIR:3}" \
 		WITH_BRIDGE="$(usex bridge)" \
+		WITH_CJSON="$(usex cjson)" \
 		WITH_PERSISTENCE="$(usex persistence)" \
 		WITH_SRV="$(usex srv)" \
 		WITH_TLS="$(usex ssl)" \
 		WITH_WEBSOCKETS="$(usex websockets)" \
 		WITH_WRAP="$(usex tcpd)" \
-		WITH_CJSON="$(usex cjson)" \
 		"$@"
 }
 

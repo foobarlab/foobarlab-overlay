@@ -2,6 +2,8 @@
 
 EAPI=7
 
+# FIXME switch to cmake
+
 inherit toolchain-funcs user
 
 DESCRIPTION="An Open Source MQTT v5.0/v3.1.1/v3.1 Broker"
@@ -11,14 +13,13 @@ SRC_URI="https://mosquitto.org/files/source/${P}.tar.gz"
 LICENSE="EPL-2.0"
 SLOT="0"
 KEYWORDS="amd64 arm ~arm64 ~x86"
-#IUSE="bridge +cjson examples libressl +persistence +srv ssl tcpd test websockets"
-IUSE="bridge cjson examples libressl +persistence +srv ssl tcpd test websockets"    # FIXME temporary workaround: disable cjson by default
+IUSE="bridge +cjson examples libressl +persistence +srv ssl tcpd test websockets"
 RESTRICT="!test? ( test )"
 
 REQUIRED_USE="test? ( bridge )"
 
 RDEPEND="
-    cjson? (dev-libs/libcjson:= )
+	cjson? ( dev-libs/libcjson:= )
 	srv? ( net-dns/c-ares:= )
 	ssl? (
 		!libressl? ( dev-libs/openssl:0= )
@@ -47,7 +48,6 @@ _emake() {
 }
 
 pkg_setup() {
-    default
 	enewgroup mosquitto || die "failed to create user group"
 	enewuser mosquitto -1 -1 /var/lib/mosquitto mosquitto || die "failed to create user"
 }
@@ -65,17 +65,6 @@ src_prepare() {
 	# Remove prestripping
 	sed -i -e 's/-s --strip-program=${CROSS_COMPILE}${STRIP}//'\
 		client/Makefile lib/cpp/Makefile src/Makefile lib/Makefile || die
-
-	# Remove failing tests
-	# TODO check
-	sed -i -e '/02-subpub-qos1-bad-pubcomp.py/d' \
-		-e '/02-subpub-qos1-bad-pubrec.py/d' \
-		-e '/02-subpub-qos2-bad-puback-1.py/d' \
-		-e '/02-subpub-qos2-bad-puback-2.py/d' \
-		-e '/02-subpub-qos2-bad-pubcomp.py/d' \
-		test/broker/Makefile || die
-	sed -i -e '/02-subscribe-qos1-async2.test/d' \
-		test/lib/Makefile || die
 }
 
 src_compile() {
@@ -94,7 +83,7 @@ src_install() {
 	doinitd "${FILESDIR}"/mosquitto
 	insinto /etc/mosquitto
 	doins mosquitto.conf
-	
+
 	if use examples; then
 		docompress -x "/usr/share/doc/${PF}/examples"
 		dodoc -r examples

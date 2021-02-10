@@ -18,7 +18,7 @@ RESTRICT="!test? ( test )"
 REQUIRED_USE="test? ( bridge )"
 
 RDEPEND="
-    cjson? (dev-libs/cjson:= )
+    cjson? (dev-libs/libcjson:= )
 	srv? ( net-dns/c-ares:= )
 	ssl? (
 		!libressl? ( dev-libs/openssl:0= )

@@ -9,7 +9,7 @@ MY_PN="solr"
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="The popular, blazing fast open source enterprise search platform from the Apache Lucene project"
-HOMEPAGE="https://lucene.apache.org/solr/"
+HOMEPAGE="https://solr.apache.org/"
 SRC_URI="mirror://apache/lucene/${MY_PN}/${PV}/${MY_PN}-${PV}.tgz"
 
 KEYWORDS="~amd64 ~x86"

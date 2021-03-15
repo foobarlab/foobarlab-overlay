@@ -1,0 +1,12 @@
+--- volti.orig  2017-08-27 12:16:20.111010863 +0200
++++ volti       2017-08-27 12:15:29.122009652 +0200
+@@ -22,7 +22,7 @@
+
+ try:
+     import dbus
+-    import dbus._version
++#    import dbus._version
+     from dbus.mainloop.glib import DBusGMainLoop
+     assert dbus.version >= (0, 80, 0)
+ except ImportError, AssertionError:
+ 

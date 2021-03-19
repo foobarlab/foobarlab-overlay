@@ -1,0 +1,13 @@
+--- vboxdrv/SUPDrvTracer.c    2020-02-20 14:23:59.000000000 +0100
++++ vboxdrv/SUPDrvTracer.c    2021-03-19 08:44:27.953262434 +0100
+@@ -1479,6 +1479,10 @@
+ # if   defined(RT_ARCH_AMD64)
+ __asm__(" \
+             movq    g_pfnSupdrvProbeFireKernel(%rip), %rax                  \n\
++999:\n\
++            .pushsection .discard.retpoline_safe\n\
++            .quad 999b\n\
++            .popsection\n\
+             jmp     *%rax \n\
+ ");
+ # elif defined(RT_ARCH_X86)

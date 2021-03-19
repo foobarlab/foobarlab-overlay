@@ -39,10 +39,8 @@ src_prepare() {
 		eapply -p0 "${FILESDIR}"/${PN}-pax-const.patch
 	fi
 	
-	# TODO REMOVE, eyesee: testing binutils 2.36 compatibility, see: https://github.com/xanmod/linux/issues/125#issuecomment-779822943
-	#eapply -p0 "${FILESDIR}"/${PN}-binutils.patch
-	
-	# eyesee: testing retpoline compatibility causing binutils fail, see: https://forums.virtualbox.org/viewtopic.php?f=7&t=101686
+	# patching retpoline mitigation which resulted in a build error (FL-8181) for virtualbox 6.1.18, kernel 5.10.13 and binutils 2.36.1
+	# see: https://forums.virtualbox.org/viewtopic.php?f=7&t=101686
 	eapply -p0 "${FILESDIR}"/${PN}-retpoline.patch
 
 	default

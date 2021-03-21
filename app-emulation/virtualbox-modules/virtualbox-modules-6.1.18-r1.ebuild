@@ -39,7 +39,7 @@ src_prepare() {
 		eapply -p0 "${FILESDIR}"/${PN}-pax-const.patch
 	fi
 	
-	# patching retpoline mitigation which resulted in a build error (FL-8181) for virtualbox 6.1.18, kernel 5.10.13 and binutils 2.36.1
+	# patching retpoline mitigation which resulted in a build error with custom kernel (FL-8181) for virtualbox 6.1.18, kernel 5.10.13 and binutils 2.36.1
 	# see: https://forums.virtualbox.org/viewtopic.php?f=7&t=101686
 	eapply -p0 "${FILESDIR}"/${PN}-retpoline.patch
 

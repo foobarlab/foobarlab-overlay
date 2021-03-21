@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="=www-servers/varnish-6.5.0"
+RDEPEND="=www-servers/varnish-6.5.1"
 DEPEND="${RDEPEND}"
 
 src_prepare() {

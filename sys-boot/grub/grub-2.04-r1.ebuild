@@ -58,6 +58,7 @@ REQUIRED_USE="
 BDEPEND="
 	${PYTHON_DEPS}
 	sys-devel/automake:1.15
+	sys-devel/automake-wrapper
 	app-misc/pax-utils
 	sys-devel/flex
 	sys-devel/bison

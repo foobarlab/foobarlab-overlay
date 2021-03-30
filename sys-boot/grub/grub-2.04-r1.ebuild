@@ -30,6 +30,7 @@ PATCHES=(
 	"${FILESDIR}"/gfxpayload.patch
 	"${FILESDIR}"/grub-2.02_beta2-KERNEL_GLOBS.patch
 	"${FILESDIR}"/2.04-sparc64-bios-boot.patch
+	"${FILESDIR}"/0001-build-Fix-GRUB-i386-pc-build-with-Ubuntu-gcc.patch
 )
 
 DEJAVU=dejavu-sans-ttf-2.37
@@ -57,8 +58,6 @@ REQUIRED_USE="
 
 BDEPEND="
 	${PYTHON_DEPS}
-	sys-devel/automake:1.15
-	sys-devel/automake-wrapper
 	app-misc/pax-utils
 	sys-devel/flex
 	sys-devel/bison
@@ -130,10 +129,6 @@ src_unpack() {
 src_prepare() {
 	default
 	
-	if has_version ">=sys-libs/binutils-libs-2.34"; then
-    eapply "${FILESDIR}"/0001-build-Fix-GRUB-i386-pc-build-with-Ubuntu-gcc.patch
-  fi
-
 	sed -i -e /autoreconf/d autogen.sh || die
 	# Nothing in Gentoo packages 'american-english' in the exact path
 	# wanted for the test, but all that is needed is a compressible text

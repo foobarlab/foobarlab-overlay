@@ -2,6 +2,8 @@
 
 EAPI=7
 
+GRUB_AUTORECONF=1
+
 if [[ -n ${GRUB_AUTOGEN} || -n ${GRUB_BOOTSTRAP} ]]; then
 	PYTHON_COMPAT=( python3+ )
 	inherit python-any-r1

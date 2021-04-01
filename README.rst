@@ -1,7 +1,7 @@
 Foobarlab Overlay
 =================
 
-This is my personal overlay to use as the starting point for collaborating with Funtoo Linux.
+This is stage3 patch overlay for Funtoo Linux used by [Funtoo Stage3 Vagrant box](https://github.com/foobarlab/funtoo-stage3-packer) packer script.
 
 Usage
 -----

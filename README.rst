@@ -1,19 +1,19 @@
-Foobarlab Overlay
-=================
+Foobarlab Stage3 Overlay
+========================
 
 This is stage3 patch overlay for Funtoo Linux used by [Funtoo Stage3 Vagrant box](https://github.com/foobarlab/funtoo-stage3-packer) packer script.
 
 Usage
 -----
 
-Checkout the sources to ``/var/git/overlay/foobarlab`` and add the file
-``/etc/portage/repos.conf/foobarlab`` with the following contents::
+Checkout the sources to ``/var/git/overlay/foobarlab-stage3`` and add the file
+``/etc/portage/repos.conf/foobarlab-stage3`` with the following contents::
 
   [DEFAULT]
   main-repo = core-kit
   
-  [foobarlab]
-  location = /var/git/overlay/foobarlab
+  [foobarlab-stage3]
+  location = /var/git/overlay/foobarlab-stage3
   auto-sync = no
   priority = 10
 

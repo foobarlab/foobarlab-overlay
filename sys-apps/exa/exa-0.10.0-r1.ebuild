@@ -66,7 +66,7 @@ DEPEND="
 	)
 "
 
-BDEPEND="( || ( app-text/pandoc-bin ) ( app-text/pandoc ) )"
+BDEPEND="|| ( app-text/pandoc-bin app-text/pandoc )"
 
 RDEPEND="${DEPEND}"
 

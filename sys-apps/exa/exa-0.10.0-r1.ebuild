@@ -60,6 +60,7 @@ KEYWORDS="*"
 IUSE="+git"
 
 DEPEND="
+    app-text/ronn
 	git? (
 		dev-libs/libgit2:=
 		net-libs/http-parser:=
@@ -80,18 +81,22 @@ src_unpack() {
 
 src_compile() {
 	cargo_src_compile $(usex git "" --no-default-features)
+	# convert markdown to man page
+	ronn --roff ${S}/man/*.md
+	# cleanup (skip this?)
+	rm -f ${S}/man/*.md
 }
 
 src_install() {
 	cargo_src_install $(usex git "" --no-default-features)
 
-	newbashcomp contrib/completions.bash exa
+	newbashcomp completions/completions.bash exa
 
 	insinto /usr/share/zsh/site-functions
-	newins contrib/completions.zsh _exa
+	newins completions/completions.zsh _exa
 
 	insinto /usr/share/fish/vendor_completions.d
-	newins contrib/completions.fish exa.fish
+	newins completions/completions.fish exa.fish
 
-	doman man/*
+	# doman is called from cargo_src_install, no need to manually install man pages
 }

@@ -66,7 +66,7 @@ DEPEND="
 	)
 "
 
-BDEPEND="app-text/ronn"
+BDEPEND="( || ( app-text/pandoc-bin ) ( app-text/pandoc ) )"
 
 RDEPEND="${DEPEND}"
 
@@ -82,11 +82,9 @@ src_unpack() {
 
 src_compile() {
 	cargo_src_compile $(usex git "" --no-default-features)
-	# convert markdown to man page
-	ronn --roff ${S}/man/*.md || die
-	# cleanup (skip this?)
+	# convert markdown to man (pandoc)
+	find ${S}/man -iname "*.md" -type f -exec sh -c 'pandoc --standalone -f markdown -t man "${0}" -o "${0%.md} "' {} \; || die
 	rm -f ${S}/man/*.md || die
-	# move to temporary location
 	mv ${S}/man ${S}/man.tmp || die
 }
 

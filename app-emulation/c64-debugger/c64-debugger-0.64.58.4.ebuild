@@ -8,7 +8,7 @@ EGIT_REPO_URI="https://git.code.sf.net/p/c64-debugger/code"
 EGIT_COMMIT="6d14ae7a5b80435d3fe778af829e6c045d2b72dc"
 
 DESCRIPTION="Commodore 64 debugger that works in real time"
-HOMEPAGE="https://sourceforge.net/projects/c64-debugger/ https://csdb.dk/release/?id=200432"
+HOMEPAGE="https://sourceforge.net/projects/c64-debugger/"
 SRC_URI=""
 
 LICENSE="GPL-3+ MIT"
@@ -29,7 +29,7 @@ RDEPEND="
 
 src_prepare() {
     default
-    # apply patches for C64 (skips Atari800 and NES), see: https://csdb.dk/release/?id=200432
+    # apply patches for C64 (disables Atari800 and NES), see: https://csdb.dk/release/?id=200432
     eapply "${FILESDIR}/${P}_AtariWrapper.mm.patch"
     eapply "${FILESDIR}/${P}_esc.c.patch"
     eapply "${FILESDIR}/${P}_C64D_Version.h.patch"

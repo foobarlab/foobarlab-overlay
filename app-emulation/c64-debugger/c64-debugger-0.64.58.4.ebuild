@@ -6,6 +6,7 @@ inherit git-r3
 
 EGIT_REPO_URI="https://git.code.sf.net/p/c64-debugger/code" 
 EGIT_COMMIT="6d14ae7a5b80435d3fe778af829e6c045d2b72dc"
+EGIT_BRANCH="master"
 
 DESCRIPTION="Commodore 64 debugger that works in real time"
 HOMEPAGE="https://sourceforge.net/projects/c64-debugger/"

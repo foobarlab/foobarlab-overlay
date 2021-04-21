@@ -5,7 +5,7 @@
         <email>eyesee@foobarlab.net</email>
     </maintainer>
     <longdescription>
-        This is Commodore 64  code and memory debugger that works in real time.
+        This is Commodore 64 code and memory debugger that works in real time.
         It is quick prototyping tool where you can play with Commodore 64 machine
         and its internals.
     </longdescription>

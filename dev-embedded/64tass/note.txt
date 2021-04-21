@@ -1,0 +1,2 @@
+Homepage: http://tass64.sourceforge.net/
+Sourcecode: SVN https://svn.code.sf.net/p/tass64/code/trunk tass64-code

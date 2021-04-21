@@ -8,7 +8,7 @@ if [[ ${PV} != *9999* ]]; then
 else
     inherit git-r3
     EGIT_REPO_URI="https://github.com/cc65/cc65.git"
-    KEYWORDS="~*"
+    KEYWORDS=""
 fi
 
 DESCRIPTION="A freeware C compiler for 6502-based systems"

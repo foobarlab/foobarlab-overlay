@@ -1,2 +1,0 @@
-Sources: https://github.com/cc65/cc65
-Homepage: https://cc65.github.io/

@@ -1,0 +1,5 @@
+Homepage: https://bitbucket.org/magli143/exomizer/wiki/Home
+C64 Wiki: https://www.c64-wiki.de/wiki/Exomizer
+Downloads: https://bitbucket.org/magli143/exomizer/wiki/browse/downloads
+
+v1.1.5: Sources are packed as zip inside downloaded zip.

@@ -15,7 +15,7 @@ DESCRIPTION="A freeware C compiler for 6502-based systems"
 HOMEPAGE="https://cc65.github.io/"
 LICENSE="ZLIB"
 SLOT="0"
-IUSE="+doc"
+IUSE="doc"
 
 DEPEND="doc? ( app-text/linuxdoc-tools )"
 

@@ -1,2 +1,0 @@
-Homepage: https://nurpax.github.io/petmate/
-Sources: https://github.com/nurpax/petmate

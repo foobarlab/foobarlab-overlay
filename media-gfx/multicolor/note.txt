@@ -1,3 +1,0 @@
-Homepage: https://sourceforge.net/projects/multicolor.berlios/
-Homepage: https://csdb.dk/release/?id=76585
-Sources: https://sourceforge.net/projects/multicolor.berlios/files/

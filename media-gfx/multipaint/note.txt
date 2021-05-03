@@ -1,3 +1,0 @@
-Homepage: http://multipaint.kameli.net/
-Sources (Processing Sketch): http://multipaint.kameli.net/multipaint_3_4_2020.zip
-Sources: https://csdb.dk/release/?id=197707

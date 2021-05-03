@@ -1,2 +1,0 @@
-Sourcecode: https://github.com/docbacardi/dreamass
-Homepage: https://sourceforge.net/projects/rrtools/

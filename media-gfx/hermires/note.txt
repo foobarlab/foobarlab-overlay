@@ -1,3 +1,0 @@
-Homepage: https://sourceforge.net/projects/hermires/
-Homepage: https://csdb.dk/release/?id=128693
-Sources: https://csdb.dk/release/download.php?id=159664

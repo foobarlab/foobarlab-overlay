@@ -1,2 +1,0 @@
-Homepage: https://sourceforge.net/projects/acme-crossass/
-Sourcecode: SVN https://svn.code.sf.net/p/acme-crossass/code-0/trunk acme-crossass-code-0

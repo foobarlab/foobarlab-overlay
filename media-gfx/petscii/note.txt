@@ -1,4 +1,0 @@
-Homepage: http://www.kameli.net/marq/?page_id=2717
-Sources: http://www.kameli.net/~marq/kode/petscii.zip
-Sources: svn://kameli.net/marq/petscii
-Sources: http://www.kameli.net/~marq/kode/petscii-beta.zip

@@ -6,11 +6,11 @@ inherit prefix toolchain-funcs
 
 HOMEPAGE="https://www.freepascal.org/"
 DESCRIPTION="Free Pascal Compiler"
-FPCV="3.2.0"
-SRC_URI="ftp://ftp.freepascal.org/pub/fpc/dist/3.2.0/source/fpc-${FPCV}.source.tar.gz
-	ftp://ftp.freepascal.org/pub/fpc/dist/3.2.0/source/fpcbuild-${FPCV}.tar.gz
-	amd64? ( ftp://ftp.freepascal.org/pub/fpc/dist/3.2.0/x86_64-linux/fpc-${FPCV}-x86_64-linux.tar )
-	x86? ( ftp://ftp.freepascal.org/pub/fpc/dist/3.2.0/i386-linux/fpc-${FPCV}.i386-linux.tar )"
+FPCV="${PV}"
+SRC_URI="ftp://ftp.freepascal.org/pub/fpc/dist/${FPCV}/source/fpc-${FPCV}.source.tar.gz
+	ftp://ftp.freepascal.org/pub/fpc/dist/${FPCV}/source/fpcbuild-${FPCV}.tar.gz
+	amd64? ( ftp://ftp.freepascal.org/pub/fpc/dist/${FPCV}/x86_64-linux/fpc-${FPCV}-x86_64-linux.tar )
+	x86? ( ftp://ftp.freepascal.org/pub/fpc/dist/${FPCV}/i386-linux/fpc-${FPCV}.i386-linux.tar )"
 
 SLOT="0"
 LICENSE="GPL-2 LGPL-2.1-with-linking-exception"

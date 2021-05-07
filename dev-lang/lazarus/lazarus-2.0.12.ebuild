@@ -18,6 +18,8 @@ SLOT="0" # Note: Slotting Lazarus needs slotting fpc, see DEPEND.
 KEYWORDS="~amd64 ~x86"
 IUSE="minimal"
 
+# TODO add 'gdb' runtime dependency (otherwise debugging is senseless)
+
 BDEPEND="net-misc/rsync"
 DEPEND=">=dev-lang/fpc-${FPCVER}[source]
 	x11-libs/gtk+:2

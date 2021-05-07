@@ -76,4 +76,7 @@ src_install() {
 	dosym ../lazarus/images/ide_icon48x48.png /usr/share/pixmaps/lazarus.png
 
 	make_desktop_entry startlazarus "Lazarus IDE" "lazarus"
+	
+	# TODO set sensible defaults (like sources in /usr/lib64/fpc/3.2.0/source)
+	# TODO set other config dir as /etc/lazarus? => throws access errors
 }

@@ -15,7 +15,7 @@ SRC_URI="ftp://ftp.freepascal.org/pub/fpc/dist/${FPCV}/source/fpc-${FPCV}.source
 SLOT="0"
 LICENSE="GPL-2 LGPL-2.1-with-linking-exception"
 KEYWORDS="amd64 x86"
-IUSE="doc source"
+IUSE="doc source ide"   # FIXME 'ide' use flag obsolete, just for backwards-compatibility (<3.2.0)
 
 RESTRICT="strip" #269221
 

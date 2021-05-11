@@ -17,16 +17,15 @@ KEYWORDS="~amd64 ~arm64 ~x86"
 IUSE=""
 RESTRICT="test"
 
-RDEPEND=">=dev-lang/erlang-22.3[ssl]
-         <dev-lang/erlang-23.1[ssl]
+RDEPEND=">=dev-lang/erlang-23.2[ssl]
+         <dev-lang/erlang-25[ssl]
 "
 DEPEND="${RDEPEND}
 	app-arch/zip
 	app-arch/unzip
 	app-text/docbook-xml-dtd:4.5
 	app-text/xmlto
-	>=dev-lang/elixir-1.8.0
-	<dev-lang/elixir-1.11.0
+	>=dev-lang/elixir-1.10
 	dev-libs/libxslt
 	$(python_gen_any_dep 'dev-python/simplejson[${PYTHON_USEDEP}]')
 "

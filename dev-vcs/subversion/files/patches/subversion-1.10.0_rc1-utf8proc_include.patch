@@ -1,11 +1,0 @@
---- subversion-1.10.0-rc1/subversion/libsvn_subr/utf8proc.c
-+++ subversion-1.10.0-rc1/subversion/libsvn_subr/utf8proc.c
-@@ -37,7 +37,7 @@
- #include "utf8proc/utf8proc.c"
- #undef strlen
- #else
--#include <utf8proc.h>
-+#include <libutf8proc/utf8proc.h>
- #endif
- 
- 

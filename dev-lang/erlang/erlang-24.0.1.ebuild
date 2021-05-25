@@ -47,7 +47,6 @@ DEPEND="${RDEPEND}
 S="${WORKDIR}/otp-OTP-${PV}"
 
 PATCHES=(
-	"${FILESDIR}"/18.2.1-wx3.0.patch
 	"${FILESDIR}"/${PN}-22.0-dont-ignore-LDFLAGS.patch
 )
 

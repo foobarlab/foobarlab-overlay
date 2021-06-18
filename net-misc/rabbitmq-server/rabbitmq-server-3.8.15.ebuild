@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 	app-arch/unzip
 	app-text/docbook-xml-dtd:4.5
 	app-text/xmlto
-	>=dev-lang/elixir-1.10
+	>=dev-lang/elixir-1.10.4
 	<dev-lang/elixir-1.12
 	dev-libs/libxslt
 	$(python_gen_any_dep 'dev-python/simplejson[${PYTHON_USEDEP}]')
